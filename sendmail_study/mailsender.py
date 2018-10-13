@@ -26,12 +26,12 @@ def get_receivers():
 
 
 # 邮件相关配置参数
-_Host = "mail.uibe.edu.cn"
-_Port = 25
-_User = "mpa@uibe.edu.cn"
-_Pwd = "uibe3405"
+_Host = "smtp.qq.com"  # 发件人邮箱服务器地址
+_Port = 25  # 邮箱服务器端口
+_User = "sender@qq.com"  # 发件人邮箱地址
+_Pwd = "password"  # 发件人邮箱密码
 _From = _User
-# _To_List = get_receivers()
+# _To_List = get_receivers()   # 收件人列表
 _To_List = ["test1@qq.com", "test2@qq.com"]
 Subject = "这是邮件主题"
 Msg_Body = "这里是邮件的内容部分"
