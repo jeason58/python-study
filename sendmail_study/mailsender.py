@@ -11,7 +11,7 @@ sys.setdefaultencoding("utf-8")
 
 
 # 收件人信息文件名
-filename = "./test.xls"
+filename = "./files/test.xls"
 
 
 # 获取收件人列表
