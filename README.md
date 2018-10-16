@@ -3,6 +3,7 @@ Study python with girlfriend
 
 ## sendmail_study —— 发送邮件
 - 从files文件夹下相应的excel文件中读取对应的邮箱地址：使用xlrd库
+- 发送邮件之前使用正则表达式对邮箱格式进行校验：使用re库
 - 发送相应Subject，Msg_body的邮件到指定邮箱地址：使用smtplib，email库
 
 ## crawl_study —— 爬取数据
