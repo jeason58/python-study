@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import xlrd
 import re
+import os
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -29,12 +30,13 @@ def get_receivers():
 _Host = "smtp.qq.com"  # 发件人邮箱服务器地址
 _Port = 25  # 邮箱服务器端口
 _User = "sender@qq.com"  # 发件人邮箱地址
-_Pwd = "password"  # 发件人邮箱密码
+_Pwd = "your_password"  # 发件人邮箱密码
 _From = _User
 # _To_List = get_receivers()   # 收件人列表
-_To_List = ["test1@qq.com", "test2@qq.com"]
+_To_List = ["receiver1@163.com", "receiver2@qq.com"]
 Subject = "这是邮件主题"
 Msg_Body = "这里是邮件的内容部分"
+Attachment_Dir = "./files/attachments"
 
 
 # 发送邮件
@@ -48,6 +50,14 @@ def get_message(_subject="", _body="", _from="", _to=""):
 
     text_part = MIMEText(_text=_body, _charset="utf-8")
     message.attach(text_part)
+
+    filelist = os.listdir(Attachment_Dir)
+    if filelist is not None and len(filelist) > 0:
+        for f in filelist:
+            filename = Attachment_Dir + "/" + f
+            file_part = MIMEText(_text=open("./files/attachments/file1.txt", "rb").read(), _charset="utf-8")
+            file_part.add_header("Content-Disposition", "attachment; filename=%s" % filename.encode("utf-8"))
+            message.attach(file_part)
     return message
 
 
